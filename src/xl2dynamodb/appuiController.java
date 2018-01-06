@@ -8,6 +8,8 @@ package xl2dynamodb;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -58,6 +60,12 @@ public class appuiController implements Initializable {
                 File file = fileChooser.showOpenDialog(getWindow(browsebtn));
                 addrtxt.setText(file.toString());
                 System.out.println(file);
+                excelfunctions xlobj=new excelfunctions();
+        try {
+            xlobj.readxl(file.toString());
+        } catch (Exception ex) {
+            Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public static void infoBox1(String infoMessage, String titleBar, String headerMessage)
