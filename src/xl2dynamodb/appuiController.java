@@ -48,10 +48,13 @@ public class appuiController implements Initializable {
                 FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
                 fileChooser.getExtensionFilters().add(extFilter);
                 fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Images", "*.*"),
-                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
+                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                new FileChooser.ExtensionFilter("XLSX", "*.xlsx"),
+                new FileChooser.ExtensionFilter("XLS", "*.xls")
             );
+                fileChooser.setInitialDirectory(
+            new File(System.getProperty("user.home"))
+        );
                 File file = fileChooser.showOpenDialog(getWindow(browsebtn));
                 addrtxt.setText(file.toString());
                 System.out.println(file);
