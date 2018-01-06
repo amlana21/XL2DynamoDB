@@ -25,7 +25,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class excelfunctions {
     
     public static void readxl(String flepth) throws Exception{
-        flepth="C:\\Disks\\e\\My Project\\XL2Dynamodb\\test.xlsx";
+        //flepth="C:\\Disks\\e\\My Project\\XL2Dynamodb\\test.xlsx";
         //new File("C:\\Documents and Settings\\admin\\Desktop\\imp data\\howtodoinjava_demo.xlsx")
        FileInputStream ExcelFileToRead = new FileInputStream(new File(flepth));
         XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);

@@ -11,5 +11,6 @@
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Button fx:id="browsebtn" layoutX="731.0" layoutY="164.0" mnemonicParsing="false" onAction="#browsefilebtn" text="Browse" />
       <TextField fx:id="addrtxt" layoutX="281.0" layoutY="164.0" prefHeight="31.0" prefWidth="428.0" />
+      <Button fx:id="sbmtbtn" layoutX="767.0" layoutY="507.0" mnemonicParsing="false" onAction="#submitButtonAction" text="Submit" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="767.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="507.0" />
     </children>
 </AnchorPane>

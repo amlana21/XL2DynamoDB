@@ -38,9 +38,12 @@ public class appuiController implements Initializable {
     private TextField addrtxt;
     
     @FXML
+    private Button sbmtbtn;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+        //System.out.println("You clicked me!");
+        //label.setText("Hello World!");
     }
     
     @FXML
@@ -60,12 +63,7 @@ public class appuiController implements Initializable {
                 File file = fileChooser.showOpenDialog(getWindow(browsebtn));
                 addrtxt.setText(file.toString());
                 System.out.println(file);
-                excelfunctions xlobj=new excelfunctions();
-        try {
-            xlobj.readxl(file.toString());
-        } catch (Exception ex) {
-            Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                
     }
     
     public static void infoBox1(String infoMessage, String titleBar, String headerMessage)
@@ -90,6 +88,23 @@ public class appuiController implements Initializable {
 
 	return window;
 }
+    
+    
+    @FXML
+    private void submitButtonAction(ActionEvent event) {
+        //System.out.println("You clicked me!");
+        //label.setText("Hello World!");
+        excelfunctions xlobj=new excelfunctions();
+        try {
+            String fileaddr=addrtxt.getText();
+            xlobj.readxl(fileaddr.toString());
+        } catch (Exception ex) {
+            Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
