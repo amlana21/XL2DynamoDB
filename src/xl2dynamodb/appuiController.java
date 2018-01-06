@@ -5,14 +5,20 @@
  */
 package xl2dynamodb;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 /**
  *
@@ -27,6 +33,9 @@ public class appuiController implements Initializable {
     private Button browsebtn;
     
     @FXML
+    private TextField addrtxt;
+    
+    @FXML
     private void handleButtonAction(ActionEvent event) {
         System.out.println("You clicked me!");
         label.setText("Hello World!");
@@ -35,7 +44,17 @@ public class appuiController implements Initializable {
     @FXML
     private void browsefilebtn(ActionEvent event) {
         //infoBox1("Please use brackets for multiple conditions in WHERE", "Error",null);
-        
+        FileChooser fileChooser = new FileChooser();
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                fileChooser.getExtensionFilters().add(extFilter);
+                fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("All Images", "*.*"),
+                new FileChooser.ExtensionFilter("JPG", "*.jpg"),
+                new FileChooser.ExtensionFilter("PNG", "*.png")
+            );
+                File file = fileChooser.showOpenDialog(getWindow(browsebtn));
+                addrtxt.setText(file.toString());
+                System.out.println(file);
     }
     
     public static void infoBox1(String infoMessage, String titleBar, String headerMessage)
@@ -46,6 +65,20 @@ public class appuiController implements Initializable {
         alert.setContentText(infoMessage);
         alert.showAndWait();
     }
+    
+    private Window getWindow(Node node)
+{
+	Window window = null;
+
+	Scene scene = node.getScene();
+
+	if (scene != null)
+	{
+		window = scene.getWindow();
+	}
+
+	return window;
+}
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
