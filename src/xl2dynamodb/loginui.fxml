@@ -14,6 +14,6 @@
       <TextField fx:id="scaccskytxt" layoutX="229.0" layoutY="202.0" />
       <Label layoutX="138.0" layoutY="284.0" prefHeight="21.0" prefWidth="59.0" text="Region" />
       <TextField fx:id="regiontxt" layoutX="229.0" layoutY="279.0" />
-      <Button fx:id="loginawsbtn" layoutX="403.0" layoutY="346.0" mnemonicParsing="false" text="Login" />
+      <Button fx:id="loginawsbtn" layoutX="403.0" layoutY="346.0" mnemonicParsing="false" onAction="#loginbtnaction" text="Login" />
    </children>
 </AnchorPane>
