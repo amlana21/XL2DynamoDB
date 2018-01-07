@@ -5,6 +5,12 @@
  */
 package xl2dynamodb;
 
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.model.DescribeTableRequest;
+import com.amazonaws.services.dynamodbv2.model.TableDescription;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -39,7 +45,28 @@ public class LoginuiController implements Initializable {
     private Button loginawsbtn;
     
     @FXML
-    private void loginbtnaction(ActionEvent event) throws Exception{
+    private void loginbtnaction(ActionEvent event){
+        
+        String homedir=System.getProperty("user.home");
+        try{
+        //------------------test aws call-----------
+        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJSLUEWDCVJD6BTLQ", "rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx");
+       AmazonDynamoDB dynamoDB;
+        dynamoDB = AmazonDynamoDBClientBuilder.standard()
+            .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
+            .withRegion("us-east-1")
+            .build();
+// Describe our new table
+            DescribeTableRequest describeTableRequest = new DescribeTableRequest().withTableName("codeaccess");
+            TableDescription tableDescription = dynamoDB.describeTable(describeTableRequest).getTable();
+            System.out.println("Table Description: " + tableDescription);
+        //------------------test aws call-----------
+        }
+        catch (Exception ex1) {
+            
+            System.out.println(ex1.getMessage());
+        }
+        /*
         Parent root = FXMLLoader.load(getClass().getResource("appui.fxml"));
         
         Scene scene = new Scene(root);
@@ -48,7 +75,8 @@ public class LoginuiController implements Initializable {
         stage.show();
         //((event.getSource())).getScene().getWindow().hide();
         getWindow(loginawsbtn).hide();
-        
+        */
+        String n="";
     }
     
     private Window getWindow(Node node)
