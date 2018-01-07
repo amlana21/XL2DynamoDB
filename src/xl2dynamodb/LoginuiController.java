@@ -7,7 +7,10 @@ package xl2dynamodb;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,6 +19,22 @@ import javafx.fxml.Initializable;
  */
 public class LoginuiController implements Initializable {
 
+    
+    @FXML
+    private TextField accskyidtxt;
+     @FXML
+    private TextField scaccskytxt;
+     @FXML
+    private TextField regiontxt;
+     
+     
+    @FXML
+    private Button loginawsbtn;
+    
+    
+    
+    
+    
     /**
      * Initializes the controller class.
      */

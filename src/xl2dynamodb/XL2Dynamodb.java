@@ -19,12 +19,21 @@ public class XL2Dynamodb extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
+        /*
         Parent root = FXMLLoader.load(getClass().getResource("appui.fxml"));
         
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
+        stage.show();*/
+        Parent root = FXMLLoader.load(getClass().getResource("loginui.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
         stage.show();
+        
+        
     }
 
     /**
