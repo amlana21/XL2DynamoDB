@@ -7,6 +7,7 @@ package xl2dynamodb;
 
 import java.io.File;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -106,7 +107,7 @@ public class appuiController implements Initializable {
         excelfunctions xlobj=new excelfunctions();
         try {
             String fileaddr=addrtxt.getText();
-            xlobj.readxl(fileaddr.toString());
+            List xllist=xlobj.readxl(fileaddr.toString());
         } catch (Exception ex) {
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
