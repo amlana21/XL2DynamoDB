@@ -109,6 +109,7 @@ public class appuiController implements Initializable {
             String fileaddr=addrtxt.getText();
             List xllist=xlobj.readxl(fileaddr.toString());
             dynamodbfunctions dynaobj=new dynamodbfunctions();
+            dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,xllist);
         } catch (Exception ex) {
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }

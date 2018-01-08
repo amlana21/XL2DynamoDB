@@ -56,7 +56,7 @@ public class LoginuiController implements Initializable {
         
         String homedir=System.getProperty("user.home");
         
-        Stage stage = new Stage();
+        /*Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
         try {
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
@@ -69,11 +69,11 @@ public class LoginuiController implements Initializable {
         getWindow(loginawsbtn).hide();
         } catch (IOException ex) {
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         
         
         //--------------------aws actions working---------------
-        /*try{
+        try{
         //------------------test aws call-----------
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJSLUEWDCVJD6BTLQ", "rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx");
        AmazonDynamoDB dynamoDB;
@@ -90,18 +90,17 @@ public class LoginuiController implements Initializable {
         //----------------------test put item-----------------
         DynamoDB dynamoDBtble = new DynamoDB(dynamoDB);
         Table table = dynamoDBtble.getTable("codeaccess");
-        Item item = new Item().withPrimaryKey("id", 120)
-                .withString("name", "Book 120 Title")
-                .withString("status", "120-1111111111")
-                .withString("type", "type_code1")
-                ;
+        Item item = new Item().withPrimaryKey("id", 120);
+        item.withString("name", "Book 120 Title99");
+                item.withString("status", "120-99");
+                item.withString("type", "type_991");
             table.putItem(item);
          //----------------------test put item-----------------
         }
         catch (Exception ex1) {
             
             System.out.println(ex1.getMessage());
-        }*/
+        }
         
         //--------------------aws actions working---------------
         /*
