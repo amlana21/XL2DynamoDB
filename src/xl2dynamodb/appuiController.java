@@ -32,6 +32,9 @@ public class appuiController implements Initializable {
     private Label label;
     
     @FXML
+    private Label seclbl;
+    
+    @FXML
     private Button browsebtn;
     
     @FXML
@@ -45,6 +48,9 @@ public class appuiController implements Initializable {
         //System.out.println("You clicked me!");
         //label.setText("Hello World!");
     }
+    
+    private String accskyidstr="";
+    private String scrtaccskeystr="";
     
     @FXML
     private void browsefilebtn(ActionEvent event) {
@@ -94,6 +100,9 @@ public class appuiController implements Initializable {
     private void submitButtonAction(ActionEvent event) {
         //System.out.println("You clicked me!");
         //label.setText("Hello World!");
+        //LoginuiController.
+        
+        
         excelfunctions xlobj=new excelfunctions();
         try {
             String fileaddr=addrtxt.getText();
@@ -103,6 +112,12 @@ public class appuiController implements Initializable {
         }
     }
     
+     public void getcredentials(String accskyid,String seckey) {
+        // TODO
+        seclbl.setText(seckey);
+        accskyidstr=accskyid;
+        scrtaccskeystr=seckey;
+    }    
     
     
     
