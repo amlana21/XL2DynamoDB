@@ -69,9 +69,9 @@ public class dynamodbfunctions {
         
         while(arrcnt<inparry.size()){
             Object[] rw=(Object[])inparry.get(arrcnt);
-            Double nn=(Double)rw[0];
-            int nn1=nn.intValue();
-            Item item = new Item().withPrimaryKey(arr1[0].toString(), (Integer)rw[0]);
+            Double id1=(Double)rw[0];
+            int rwid=id1.intValue();
+            Item item = new Item().withPrimaryKey(arr1[0].toString(), rwid);
           
             
             arrcnt=arrcnt+1;
