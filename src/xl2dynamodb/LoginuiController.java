@@ -56,7 +56,7 @@ public class LoginuiController implements Initializable {
         
         String homedir=System.getProperty("user.home");
         
-        /*Stage stage = new Stage();
+        Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
         try {
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
@@ -69,7 +69,7 @@ public class LoginuiController implements Initializable {
         getWindow(loginawsbtn).hide();
         } catch (IOException ex) {
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+        }
         
         /*
         //--------------------aws actions working---------------
@@ -105,7 +105,7 @@ public class LoginuiController implements Initializable {
         //--------------------aws actions working---------------
         
         
-        Parent root;
+        /*Parent root;
         try {
             root = FXMLLoader.load(getClass().getResource("appui.fxml"));
             Scene scene = new Scene(root);
@@ -117,7 +117,7 @@ public class LoginuiController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+        */
         
         
         String n="";
