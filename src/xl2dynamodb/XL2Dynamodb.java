@@ -27,7 +27,7 @@ public class XL2Dynamodb extends Application {
         stage.setScene(scene);
         stage.show();*/
         Parent root = FXMLLoader.load(getClass().getResource("loginui.fxml"));
-        
+        stage.resizableProperty().setValue(Boolean.FALSE);
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
