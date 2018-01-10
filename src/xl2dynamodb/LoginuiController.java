@@ -75,12 +75,14 @@ public class LoginuiController implements Initializable {
             lgnchk=chklogin(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString(),tblname.getText());
             
             //----------check login------
+            if(lgnchk){
             appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString());
             Scene scene = new Scene(root);  
             stage.setScene(scene);
         stage.show();
         //((event.getSource())).getScene().getWindow().hide();
         getWindow(loginawsbtn).hide();
+            }
         } catch (Exception ex) {
             if(lgnchk==false){
                 infoBox1("Invalid Login..Please try again..", "Error",null);
