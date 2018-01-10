@@ -65,6 +65,12 @@ public class dynamodbfunctions {
         
         //------------------get column names-------
         
+        //-----------------get column types-----
+        Object[] dtypes=(Object[])inparry.get(arrcnt);
+        arrcnt=arrcnt+1;     
+        
+        //-----------------get column types-----
+        
         
         //---------------------update db items-----------------
         AmazonDynamoDB dynamoDB;
@@ -83,10 +89,17 @@ public class dynamodbfunctions {
           colcnt=colcnt+1;
           while(colcnt<rw.length){
               String cnme=arr1[colcnt].toString();
-              String cvlue= rw[colcnt].toString();
-              item.withString(cnme, cvlue);
-                //item.withString("type", "type_991");
-            //table.putItem(item);
+              //String cvlue= rw[colcnt].toString();
+              if(dtypes[colcnt].toString().equals("S")){
+                  String cvlue= rw[colcnt].toString();
+                  item.withString(cnme, cvlue);
+              }
+              else if(dtypes[colcnt].toString().equals("N")){
+                  Double cvlue= (Double)rw[colcnt];
+                  item.withNumber(cnme, cvlue);
+              }
+              
+
               
               colcnt=colcnt+1;
           }
