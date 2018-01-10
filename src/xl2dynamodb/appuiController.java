@@ -110,6 +110,7 @@ public class appuiController implements Initializable {
             List xllist=xlobj.readxl(fileaddr.toString());
             dynamodbfunctions dynaobj=new dynamodbfunctions();
             dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,xllist);
+            infoBox1("Completed inserting items in DB..", "Success",null);
         } catch (Exception ex) {
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
