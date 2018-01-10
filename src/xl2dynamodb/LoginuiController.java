@@ -62,12 +62,33 @@ public class LoginuiController implements Initializable {
     @FXML
     private void loginbtnaction(ActionEvent event){
         
-        String homedir=System.getProperty("user.home");
+        String homedir=System.getProperty("user.path");
         
         Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
         boolean lgnchk=false;
+        boolean valdns=false;
         try {
+            
+            //-----------------------validations------------
+            
+        if(accskyidtxt.getText() == null || accskyidtxt.getText().trim().isEmpty()){
+            throw new Exception("Access Key ID Mandatory");
+        }
+        if(scaccskytxt.getText() == null || scaccskytxt.getText().trim().isEmpty()){
+            throw new Exception("Secret Access Key is Mandatory");
+        }
+        if(regionchoice.getSelectionModel().getSelectedItem() == null){
+            throw new Exception("Region is Mandatory");
+        }
+        if(tblname.getText() == null || tblname.getText().trim().isEmpty()){
+            throw new Exception("Table Name is Mandatory");
+        }
+        valdns=true;
+        //-----------------------validations------------
+            
+            
+            
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
             appuiController appcntrlr=(appuiController)nxtloader.getController();
             //----------check login----------
@@ -84,9 +105,16 @@ public class LoginuiController implements Initializable {
         getWindow(loginawsbtn).hide();
             }
         } catch (Exception ex) {
-            if(lgnchk==false){
+            
+            if(!valdns){
+                infoBox1(ex.getMessage(), "Error",null);
+            }else
+            if(!lgnchk){
                 infoBox1("Invalid Login..Please try again..", "Error",null);
             }
+            
+            
+            
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
