@@ -52,6 +52,7 @@ public class appuiController implements Initializable {
     
     private String accskyidstr="";
     private String scrtaccskeystr="";
+    private String regionstr="";
     
     @FXML
     private void browsefilebtn(ActionEvent event) {
@@ -109,18 +110,19 @@ public class appuiController implements Initializable {
             String fileaddr=addrtxt.getText();
             List xllist=xlobj.readxl(fileaddr.toString());
             dynamodbfunctions dynaobj=new dynamodbfunctions();
-            dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,xllist);
+            dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,regionstr,xllist);
             infoBox1("Completed inserting items in DB..", "Success",null);
         } catch (Exception ex) {
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-     public void getcredentials(String accskyid,String seckey) {
+     public void getcredentials(String accskyid,String seckey,String rgnstr) {
         // TODO
         seclbl.setText(seckey);
         accskyidstr=accskyid;
         scrtaccskeystr=seckey;
+        regionstr=rgnstr;
     }    
     
     

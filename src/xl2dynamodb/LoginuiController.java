@@ -73,7 +73,7 @@ public class LoginuiController implements Initializable {
         try {
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
             appuiController appcntrlr=(appuiController)nxtloader.getController();
-            appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText());
+            appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString());
             Scene scene = new Scene(root);  
             stage.setScene(scene);
         stage.show();

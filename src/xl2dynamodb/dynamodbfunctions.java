@@ -19,7 +19,7 @@ import java.util.List;
  * @author amlan
  */
 public class dynamodbfunctions {
-    public void insertItemtodb(String acckeystr,String seckeystr,List inparry) throws Exception{
+    public void insertItemtodb(String acckeystr,String seckeystr,String rgnstr,List inparry) throws Exception{
         BasicAWSCredentials awsCreds = new BasicAWSCredentials(acckeystr,seckeystr);
         /*
         //--------------------aws actions working---------------
@@ -76,7 +76,8 @@ public class dynamodbfunctions {
         AmazonDynamoDB dynamoDB;
         dynamoDB = AmazonDynamoDBClientBuilder.standard()
             .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
-            .withRegion("us-east-1")
+            //.withRegion("us-east-1")
+              .withRegion(rgnstr)
             .build();
         DynamoDB dynamoDBtble = new DynamoDB(dynamoDB);
         Table table = dynamoDBtble.getTable("codeaccess");
