@@ -73,7 +73,7 @@ public class LoginuiController implements Initializable {
         
         
         //--------------------aws actions working---------------
-        try{
+        /*try{
         //------------------test aws call-----------
         BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJSLUEWDCVJD6BTLQ", "rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx");
        AmazonDynamoDB dynamoDB;
@@ -100,7 +100,7 @@ public class LoginuiController implements Initializable {
         catch (Exception ex1) {
             
             System.out.println(ex1.getMessage());
-        }
+        }*/
         
         //--------------------aws actions working---------------
         /*
