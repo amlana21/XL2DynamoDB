@@ -71,7 +71,7 @@ public class LoginuiController implements Initializable {
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
         
-        
+        /*
         //--------------------aws actions working---------------
         try{
         //------------------test aws call-----------
@@ -103,16 +103,23 @@ public class LoginuiController implements Initializable {
         }
         
         //--------------------aws actions working---------------
-        /*
-        Parent root = FXMLLoader.load(getClass().getResource("appui.fxml"));
+        */
         
-        Scene scene = new Scene(root);
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("appui.fxml"));
+            Scene scene = new Scene(root);
         Stage stage = new Stage();
         stage.setScene(scene);
         stage.show();
         //((event.getSource())).getScene().getWindow().hide();
         getWindow(loginawsbtn).hide();
-        */
+        } catch (IOException ex) {
+            Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
         String n="";
     }
     
