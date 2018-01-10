@@ -57,10 +57,10 @@ public class appuiController implements Initializable {
     private void browsefilebtn(ActionEvent event) {
         //infoBox1("Please use brackets for multiple conditions in WHERE", "Error",null);
         FileChooser fileChooser = new FileChooser();
-                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+                FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
                 fileChooser.getExtensionFilters().add(extFilter);
                 fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("All Files", "*.*"),
+                //new FileChooser.ExtensionFilter(),//"TXT files (*.txt)", "*.txt"
                 new FileChooser.ExtensionFilter("XLSX", "*.xlsx"),
                 new FileChooser.ExtensionFilter("XLS", "*.xls")
             );
