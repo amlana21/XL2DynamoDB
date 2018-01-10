@@ -59,19 +59,35 @@ public class dynamodbfunctions {
         int arrcnt=0;
         //Object[] arr1=inparry[arrcnt];
         Object[] arr1=(Object[])inparry.get(arrcnt);
-        
+        arrcnt=arrcnt+1;
         
         //------------------get column names-------
         
         
+        //---------------------update db items-----------------
         AmazonDynamoDB dynamoDB;
+        
+        while(arrcnt<inparry.size()){
+            Object[] rw=(Object[])inparry.get(arrcnt);
+            Double nn=(Double)rw[0];
+            int nn1=nn.intValue();
+            Item item = new Item().withPrimaryKey(arr1[0].toString(), (Integer)rw[0]);
+          
+            
+            arrcnt=arrcnt+1;
+        }
+        
+        
+        //---------------------update db items-----------------
+        
+        /*AmazonDynamoDB dynamoDB;
         dynamoDB = AmazonDynamoDBClientBuilder.standard()
             .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
             .withRegion("us-east-1")
             .build();
         int n=0;
         Item item = new Item().withPrimaryKey("id", 120);
-        item.withString("name", "Book 120 Title");
+        item.withString("name", "Book 120 Title");*/
         
     }
 }
