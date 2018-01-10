@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -7,16 +8,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xl2dynamodb.LoginuiController">
    <children>
-      <Label layoutX="94.0" layoutY="135.0" prefHeight="27.0" prefWidth="103.0" text="Access Key ID" />
-      <TextField fx:id="accskyidtxt" layoutX="229.0" layoutY="133.0" text="AKIAJSLUEWDCVJD6BTLQ" />
-      <Label layoutX="67.0" layoutY="207.0" prefHeight="21.0" prefWidth="130.0" text="Secret Access Key" />
-      <TextField fx:id="scaccskytxt" layoutX="229.0" layoutY="202.0" text="rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx" />
-      <Label layoutX="138.0" layoutY="284.0" prefHeight="21.0" prefWidth="59.0" text="Region" />
+      <Label layoutX="94.0" layoutY="63.0" prefHeight="27.0" prefWidth="103.0" text="Access Key ID" />
+      <TextField fx:id="accskyidtxt" layoutX="229.0" layoutY="61.0" text="AKIAJSLUEWDCVJD6BTLQ" />
+      <Label layoutX="67.0" layoutY="135.0" prefHeight="21.0" prefWidth="130.0" text="Secret Access Key" />
+      <TextField fx:id="scaccskytxt" layoutX="229.0" layoutY="130.0" text="rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx" />
+      <Label layoutX="138.0" layoutY="212.0" prefHeight="21.0" prefWidth="59.0" text="Region" />
       <Button fx:id="loginawsbtn" layoutX="403.0" layoutY="346.0" mnemonicParsing="false" onAction="#loginbtnaction" text="Login" />
-      <ChoiceBox fx:id="regionchoice" layoutX="229.0" layoutY="282.0" prefWidth="150.0" >
+      <ChoiceBox fx:id="regionchoice" layoutX="229.0" layoutY="210.0" prefWidth="150.0">
           <items>
         <FXCollections fx:factory="observableArrayList">
             <String fx:value="us-east-1" />
@@ -26,5 +26,7 @@
     </items>                 
           
       </ChoiceBox>
+      <Label layoutX="114.0" layoutY="283.0" text="Table Name" />
+      <TextField fx:id="tblname" layoutX="230.0" layoutY="279.0" text="codeaccess" />
    </children>
 </AnchorPane>

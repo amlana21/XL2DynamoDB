@@ -28,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
@@ -47,19 +48,14 @@ public class LoginuiController implements Initializable {
     private TextField accskyidtxt;
      @FXML
     private TextField scaccskytxt;
-     @FXML  
-    private TextField regiontxt;
+    // @FXML  
+    //private TextField regiontxt;
      @FXML
     private ChoiceBox regionchoice;
-     //ObservableList<String> availableChoices = FXCollections.observableArrayList("apples", "oranges"); 
-     //regionchoice.setItems(availableChoices);
-             
-             
-             
-     //regionchoice.
-        //regionchoice.setItems(availableChoices);
-
-
+     
+     @FXML  
+    private TextField tblname;
+     
     @FXML
     private Button loginawsbtn;
     
@@ -70,16 +66,25 @@ public class LoginuiController implements Initializable {
         
         Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
+        boolean lgnchk=false;
         try {
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
             appuiController appcntrlr=(appuiController)nxtloader.getController();
+            //----------check login----------
+            
+            lgnchk=chklogin(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString(),tblname.getText());
+            
+            //----------check login------
             appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString());
             Scene scene = new Scene(root);  
             stage.setScene(scene);
         stage.show();
         //((event.getSource())).getScene().getWindow().hide();
         getWindow(loginawsbtn).hide();
-        } catch (IOException ex) {
+        } catch (Exception ex) {
+            if(lgnchk==false){
+                infoBox1("Invalid Login..Please try again..", "Error",null);
+            }
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -134,6 +139,29 @@ public class LoginuiController implements Initializable {
         
         String n="";
     }
+    
+    private boolean chklogin(String accskyid,String scaccsky,String rgn,String tblnme) throws Exception{
+        boolean otpt=false;
+         BasicAWSCredentials awsCreds1 = new BasicAWSCredentials(accskyid,scaccsky);
+         AmazonDynamoDB dynamoDB1;
+        dynamoDB1 = AmazonDynamoDBClientBuilder.standard()
+            .withCredentials(new AWSStaticCredentialsProvider(awsCreds1))
+            .withRegion(rgn)
+            .build();
+        DescribeTableRequest describeTableRequest = new DescribeTableRequest().withTableName(tblnme);
+            TableDescription tableDescription1 = dynamoDB1.describeTable(describeTableRequest).getTable();
+            otpt=true;
+        return otpt;
+    }
+     public static void infoBox1(String infoMessage, String titleBar, String headerMessage)
+    {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titleBar);
+        alert.setHeaderText(headerMessage);
+        alert.setContentText(infoMessage);
+        alert.showAndWait();
+    }
+    
     
     private Window getWindow(Node node)
 {
