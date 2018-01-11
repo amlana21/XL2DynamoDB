@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="685.0" prefWidth="1134.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xl2dynamodb.appuiController">
-    <children>
-        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <Button fx:id="browsebtn" layoutX="731.0" layoutY="164.0" mnemonicParsing="false" onAction="#browsefilebtn" text="Browse" />
-      <TextField fx:id="addrtxt" layoutX="281.0" layoutY="164.0" prefHeight="31.0" prefWidth="428.0" />
-      <Button fx:id="sbmtbtn" layoutX="767.0" layoutY="507.0" mnemonicParsing="false" onAction="#submitButtonAction" text="Submit" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="767.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="507.0" />
-      <Label fx:id="seclbl" layoutX="281.0" layoutY="256.0" prefHeight="21.0" prefWidth="186.0" text="test" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="728.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xl2dynamodb.appuiController">
+   <children>
+      <Pane prefHeight="430.0" prefWidth="728.0" style="-fx-background-color: #EEEBEB;">
+         <children>
+             <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="728.0" style="-fx-background-color: gray;" text="Select File and Submit" textAlignment="CENTER" textFill="#090236">
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+               <font>
+                  <Font name="Arial Black" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="121.0" prefHeight="17.0" prefWidth="58.0" text="Select File">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextField fx:id="addrtxt" disable="true" editable="false" layoutX="107.0" layoutY="117.0" prefHeight="25.0" prefWidth="458.0" />
+            <Button fx:id="browsebtn" layoutX="592.0" layoutY="117.0" mnemonicParsing="false" onAction="#browsefilebtn" text="Browse">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="sbmtbtn" layoutX="302.0" layoutY="215.0" mnemonicParsing="false" onAction="#submitButtonAction" text="Submit">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

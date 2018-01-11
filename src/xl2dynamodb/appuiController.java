@@ -119,7 +119,7 @@ public class appuiController implements Initializable {
     
      public void getcredentials(String accskyid,String seckey,String rgnstr) {
         // TODO
-        seclbl.setText(seckey);
+        //seclbl.setText(seckey);
         accskyidstr=accskyid;
         scrtaccskeystr=seckey;
         regionstr=rgnstr;
