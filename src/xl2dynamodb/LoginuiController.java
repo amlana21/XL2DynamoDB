@@ -112,6 +112,8 @@ public class LoginuiController implements Initializable {
             }else
             if(!lgnchk){
                 infoBox1("Invalid Login..Please try again..", "Error",null);
+            }else{
+                infoBox1("Error Logging in..Please try again..Error is:"+ex.getMessage(), "Error",null);
             }
             
             

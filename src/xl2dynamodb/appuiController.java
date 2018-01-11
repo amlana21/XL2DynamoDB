@@ -119,9 +119,12 @@ public class appuiController implements Initializable {
             dynamodbfunctions dynaobj=new dynamodbfunctions();
             dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,regionstr,xllist,tblnme);
             infoBox1("Completed inserting items in DB..", "Success",null);
+            addrtxt.setText("");
         } catch (Exception ex) {
             if(!fleexists){
                 infoBox1(ex.getMessage(), "Error",null);
+            }else{
+                infoBox1("Error encountered..Please try again..Error is:"+ex.getMessage(), "Error",null);
             }
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
