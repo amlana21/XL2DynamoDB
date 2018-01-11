@@ -63,7 +63,7 @@ public class LoginuiController implements Initializable {
     private void loginbtnaction(ActionEvent event){
         
         String homedir=System.getProperty("user.path");
-        
+        //String ver=com.sun.javafx.runtime.VersionInfo.getRuntimeVersion();
         Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
         boolean lgnchk=false;
