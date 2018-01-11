@@ -19,7 +19,7 @@ import java.util.List;
  * @author amlan
  */
 public class dynamodbfunctions {
-    public void insertItemtodb(String acckeystr,String seckeystr,String rgnstr,List inparry) throws Exception{
+    public void insertItemtodb(String acckeystr,String seckeystr,String rgnstr,List inparry,String tablnme) throws Exception{
         BasicAWSCredentials awsCreds = new BasicAWSCredentials(acckeystr,seckeystr);
         /*
         //--------------------aws actions working---------------
@@ -80,7 +80,7 @@ public class dynamodbfunctions {
               .withRegion(rgnstr)
             .build();
         DynamoDB dynamoDBtble = new DynamoDB(dynamoDB);
-        Table table = dynamoDBtble.getTable("codeaccess");
+        Table table = dynamoDBtble.getTable(tablnme);
         while(arrcnt<inparry.size()){
             int colcnt=0;
             Object[] rw=(Object[])inparry.get(arrcnt);

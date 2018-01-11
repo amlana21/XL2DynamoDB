@@ -53,6 +53,7 @@ public class appuiController implements Initializable {
     private String accskyidstr="";
     private String scrtaccskeystr="";
     private String regionstr="";
+    private String tblnme="";
     
     @FXML
     private void browsefilebtn(ActionEvent event) {
@@ -106,23 +107,33 @@ public class appuiController implements Initializable {
         
         
         excelfunctions xlobj=new excelfunctions();
+        boolean fleexists=false;
         try {
+            
+            if(addrtxt.getText() == null || addrtxt.getText().trim().isEmpty()){
+                throw new Exception("Please select a file..");
+            }
+            fleexists=true;
             String fileaddr=addrtxt.getText();
             List xllist=xlobj.readxl(fileaddr.toString());
             dynamodbfunctions dynaobj=new dynamodbfunctions();
-            dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,regionstr,xllist);
+            dynaobj.insertItemtodb(accskyidstr,scrtaccskeystr,regionstr,xllist,tblnme);
             infoBox1("Completed inserting items in DB..", "Success",null);
         } catch (Exception ex) {
+            if(!fleexists){
+                infoBox1(ex.getMessage(), "Error",null);
+            }
             Logger.getLogger(appuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-     public void getcredentials(String accskyid,String seckey,String rgnstr) {
+     public void getcredentials(String accskyid,String seckey,String rgnstr,String tbnme) {
         // TODO
         //seclbl.setText(seckey);
         accskyidstr=accskyid;
         scrtaccskeystr=seckey;
         regionstr=rgnstr;
+        tblnme=tbnme;
     }    
     
     

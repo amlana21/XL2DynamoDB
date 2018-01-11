@@ -97,7 +97,7 @@ public class LoginuiController implements Initializable {
             
             //----------check login------
             if(lgnchk){
-            appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString());
+            appcntrlr.getcredentials(accskyidtxt.getText(),scaccskytxt.getText(),regionchoice.getSelectionModel().getSelectedItem().toString(),tblname.getText());
             stage.resizableProperty().setValue(Boolean.FALSE);
             Scene scene = new Scene(root);  
             stage.setScene(scene);
