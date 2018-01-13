@@ -1,7 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *@fileoverview file for excel related functions
+ * @author amlan
  */
 package xl2dynamodb;
 
@@ -18,8 +17,6 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
-
 /**
  *
  * @author amlan
@@ -28,19 +25,14 @@ public class excelfunctions {
     
     public static List readxl(String flepth) throws Exception{
         List<Object[]> otpt = new ArrayList<Object[]>();
-        //flepth="C:\\Disks\\e\\My Project\\XL2Dynamodb\\test.xlsx";
-        //new File("C:\\Documents and Settings\\admin\\Desktop\\imp data\\howtodoinjava_demo.xlsx")
-       FileInputStream ExcelFileToRead = new FileInputStream(new File(flepth));
+        FileInputStream ExcelFileToRead = new FileInputStream(new File(flepth));
         XSSFWorkbook  wb = new XSSFWorkbook(ExcelFileToRead);
-
         XSSFWorkbook test = new XSSFWorkbook(); 
-
         XSSFSheet sheet = wb.getSheetAt(0);
         XSSFRow row; 
         XSSFCell cell;
-
         Iterator rows = sheet.rowIterator();
-int noOfColumns = sheet.getRow(0).getLastCellNum();
+        int noOfColumns = sheet.getRow(0).getLastCellNum();
         while (rows.hasNext())
         {
             row=(XSSFRow) rows.next();
@@ -65,7 +57,7 @@ int noOfColumns = sheet.getRow(0).getLastCellNum();
                 }
                 else
                 {
-                    //U Can Handle Boolean, Formula, Errors
+                    //placeholder for other types
                 }
             }
             otpt.add(rwobj);
@@ -73,7 +65,5 @@ int noOfColumns = sheet.getRow(0).getLastCellNum();
         }
         return otpt;
     }
-    
-    
-    
+  
 }

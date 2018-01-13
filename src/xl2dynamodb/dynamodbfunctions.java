@@ -1,5 +1,5 @@
 /**
- *@fileoverview Controller file for the select file UI
+ *@fileoverview file for all Dynamodb related functions
  * @author amlan
  */
 
