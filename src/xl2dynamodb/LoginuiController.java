@@ -43,13 +43,12 @@ import javafx.stage.Window;
  */
 public class LoginuiController implements Initializable {
 
-    //tempcntrl=
+    //--------------ui control ids declaration------------
     @FXML
     private TextField accskyidtxt;
      @FXML
     private TextField scaccskytxt;
-    // @FXML  
-    //private TextField regiontxt;
+    
      @FXML
     private ChoiceBox regionchoice;
      
@@ -59,15 +58,16 @@ public class LoginuiController implements Initializable {
     @FXML
     private Button loginawsbtn;
     
+     //--------------ui control ids declaration------------
+    
     @FXML
     private void loginbtnaction(ActionEvent event){
-        
-        String homedir=System.getProperty("user.path");
-        //String ver=com.sun.javafx.runtime.VersionInfo.getRuntimeVersion();
+               
         Stage stage = new Stage();
         FXMLLoader nxtloader=new FXMLLoader();
         boolean lgnchk=false;
         boolean valdns=false;
+        
         try {
             
             //-----------------------validations------------
@@ -88,7 +88,7 @@ public class LoginuiController implements Initializable {
         //-----------------------validations------------
             
             
-            
+            //-------------------------start opening next window----------------
             Parent root = nxtloader.load(getClass().getResource("appui.fxml").openStream());
             appuiController appcntrlr=(appuiController)nxtloader.getController();
             //----------check login----------
@@ -101,10 +101,14 @@ public class LoginuiController implements Initializable {
             stage.resizableProperty().setValue(Boolean.FALSE);
             Scene scene = new Scene(root);  
             stage.setScene(scene);
-        stage.show();
-        //((event.getSource())).getScene().getWindow().hide();
-        getWindow(loginawsbtn).hide();
+            stage.show();
+        
+            getWindow(loginawsbtn).hide();
             }
+            //-------------------------start opening next window----------------
+            
+            
+            
         } catch (Exception ex) {
             
             if(!valdns){
@@ -116,61 +120,10 @@ public class LoginuiController implements Initializable {
                 infoBox1("Error Logging in..Please try again..Error is:"+ex.getMessage(), "Error",null);
             }
             
-            
-            
             Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        /*
-        //--------------------aws actions working---------------
-        /*try{
-        //------------------test aws call-----------
-        BasicAWSCredentials awsCreds = new BasicAWSCredentials("AKIAJSLUEWDCVJD6BTLQ", "rH4D7vHzRNG3BHYXXazcMjB8qyqk51ClcgBosYEx");
-       AmazonDynamoDB dynamoDB;
-        dynamoDB = AmazonDynamoDBClientBuilder.standard()
-            .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
-            .withRegion("us-east-1")
-            .build();
-// Describe our new table
-            DescribeTableRequest describeTableRequest = new DescribeTableRequest().withTableName("codeaccess");
-            TableDescription tableDescription = dynamoDB.describeTable(describeTableRequest).getTable();
-            System.out.println("Table Description: " + tableDescription);
-        //------------------test aws call-----------
-        
-        //----------------------test put item-----------------
-        DynamoDB dynamoDBtble = new DynamoDB(dynamoDB);
-        Table table = dynamoDBtble.getTable("codeaccess");
-        Item item = new Item().withPrimaryKey("id", 120);
-        item.withString("name", "Book 120 Title99");
-                item.withString("status", "120-99");
-                item.withString("type", "type_991");
-            table.putItem(item);
-         //----------------------test put item-----------------
-        }
-        catch (Exception ex1) {
-            
-            System.out.println(ex1.getMessage());
-        }*/
-        
-        //--------------------aws actions working---------------
-        
-        
-        /*Parent root;
-        try {
-            root = FXMLLoader.load(getClass().getResource("appui.fxml"));
-            Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
-        //((event.getSource())).getScene().getWindow().hide();
-        getWindow(loginawsbtn).hide();
-        } catch (IOException ex) {
-            Logger.getLogger(LoginuiController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        */
-        
-        
-        String n="";
+
     }
     
     private boolean chklogin(String accskyid,String scaccsky,String rgn,String tblnme) throws Exception{
@@ -186,6 +139,8 @@ public class LoginuiController implements Initializable {
             otpt=true;
         return otpt;
     }
+    
+    
      public static void infoBox1(String infoMessage, String titleBar, String headerMessage)
     {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
