@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *@fileoverview Controller file for the Login UI
+ * @author amlan
  */
+
 package xl2dynamodb;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
