@@ -1,8 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *@fileoverview Controller file for the select file UI
+ * @author amlan
  */
+
 package xl2dynamodb;
 
 import java.io.File;
@@ -44,11 +44,7 @@ public class appuiController implements Initializable {
     @FXML
     private Button sbmtbtn;
     
-    @FXML
-    private void handleButtonAction(ActionEvent event) {
-        //System.out.println("You clicked me!");
-        //label.setText("Hello World!");
-    }
+   
     
     private String accskyidstr="";
     private String scrtaccskeystr="";
@@ -57,7 +53,7 @@ public class appuiController implements Initializable {
     
     @FXML
     private void browsefilebtn(ActionEvent event) {
-        //infoBox1("Please use brackets for multiple conditions in WHERE", "Error",null);
+        
         FileChooser fileChooser = new FileChooser();
                 FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
                 fileChooser.getExtensionFilters().add(extFilter);
@@ -101,15 +97,10 @@ public class appuiController implements Initializable {
     
     @FXML
     private void submitButtonAction(ActionEvent event) {
-        //System.out.println("You clicked me!");
-        //label.setText("Hello World!");
-        //LoginuiController.
-        
-        
+
         excelfunctions xlobj=new excelfunctions();
         boolean fleexists=false;
         try {
-            
             if(addrtxt.getText() == null || addrtxt.getText().trim().isEmpty()){
                 throw new Exception("Please select a file..");
             }
@@ -131,8 +122,6 @@ public class appuiController implements Initializable {
     }
     
      public void getcredentials(String accskyid,String seckey,String rgnstr,String tbnme) {
-        // TODO
-        //seclbl.setText(seckey);
         accskyidstr=accskyid;
         scrtaccskeystr=seckey;
         regionstr=rgnstr;
