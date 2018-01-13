@@ -29,18 +29,19 @@ To get the source code, clone the GIT repository or download the files from abov
 
 <b>Run the Application:</b>
 1.	Download and unzip the Exec.zip to a local folder
-2.	Run the JAR file in your system
-3.	Enter these below required info in login window:
+2. Copy the libararies from the lib/copylibs folder to lib folder in the unzipped location
+3.	Run the JAR file in your system
+4.	Enter these below required info in login window:
 a.	Secret Access Key
 b.	Access Key ID
 c.	Region
 d.	Table Name
  
-4.	Click on Login. If the above details are correct, it will take you to the next file select window. If error, a popup will be shown
-5.	In the next window, browse and select the excel data file to be loaded
+5.	Click on Login. If the above details are correct, it will take you to the next file select window. If error, a popup will be shown
+6.	In the next window, browse and select the excel data file to be loaded
  
-6.	Click on Submit to start the import of data
-7.	A final popup shows the data import completion. Any errors are shown as popup
+7.	Click on Submit to start the import of data
+8.	A final popup shows the data import completion. Any errors are shown as popup
 
 
 <b>Data File format:</b>
